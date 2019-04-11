@@ -62,20 +62,25 @@ endif()
 # put your compiler settings to different files and just include them here, e.g.,
 # include(<vendor_dir>/compilers/${AFR_TOOLCHAIN}.cmake)
 
+# "/Applications/microchip/xc32/v2.15/bin/xc32-gcc" -g -x c -c -mprocessor=32MZ2048EFM100 -ffunction-sections -O1 -I../common/microchip_code -I../common/microchip_code/bsp -I../common/microchip_code/framework -I../../../../lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework -I../../../../lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/usart -I../common/include -I../../../common/ota/bootloader/include -I../../../../lib/third_party/tinycrypt/lib/include -I../../../../lib/third_party/tinycrypt/asn1 -I../../../common/ota/bootloader/flash/portable/microchip/curiosity_pic32mzef -I../config_files -MMD -MF build/pic32mz_ef_curiosity/production/_ext/1256978611/sys_reset.o.d -o build/pic32mz_ef_curiosity/production/_ext/1256978611/sys_reset.o ../common/microchip_code/framework/system/reset/src/sys_reset.c -DXPRJ_pic32mz_ef_curiosity=pic32mz_ef_curiosity -legacy-libc 
+# /Applications/microchip/xc32/v2.15/bin/xc32-gcc -DCURIOSITY_PIC32MZ-EF -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/include -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/include/private -isystem /Users/ejacobus/gitroot/amazon-freertos/demos/microchip/curiosity_pic32mzef/common -isystem /Users/ejacobus/gitroot/amazon-freertos/demos/microchip/curiosity_pic32mzef/common/config_files -isystem /Users/ejacobus/gitroot/amazon-freertos/demos/microchip/curiosity_pic32mzef/common/application_code/microchip_code -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/pkcs11/portable/microchip/curiosity_pic32mzef -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mbedtls/include -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/FreeRTOS/portable/MPLAB/PIC32MZ -isystem /Users/ejacobus/gitroot/amazon-freertos/demos/microchip/curiosity_pic32mzef/common/../../../common/include -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/jsmn -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/pkcs11 -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mcu_vendor/microchip/harmony/v2.05/bsp -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/FreeRTOS-Plus-TCP/include -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/FreeRTOS-Plus-TCP/source/portable/Compiler/GCC -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/system/common -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/include -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver_extension -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver_extension/common/include -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver_extension/driver/include -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver_extension/driver/source -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver/include -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/ota/portable/microchip/curiosity_pic32mzef -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/tinycbor -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/ota -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/cbor/src -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/defender/src -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/defender/metrics -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/defender/portable/freertos -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/defender/report  -mnewlib-libc -std=gnu99 -fgnu89-inline -o CMakeFiles/afr_kernel.dir/lib/FreeRTOS/event_groups.c.obj   -c /Users/ejacobus/gitroot/amazon-freertos/lib/FreeRTOS/event_groups.c
+# /Applications/microchip/xc32/v2.15/bin/xc32-gcc -g -x c -DCURIOSITY_PIC32MZ-EF -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/include -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/include/private -isystem /Users/ejacobus/gitroot/amazon-freertos/demos/microchip/curiosity_pic32mzef/common -isystem /Users/ejacobus/gitroot/amazon-freertos/demos/microchip/curiosity_pic32mzef/common/config_files -isystem /Users/ejacobus/gitroot/amazon-freertos/demos/microchip/curiosity_pic32mzef/common/application_code/microchip_code -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/pkcs11/portable/microchip/curiosity_pic32mzef -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mbedtls/include -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/FreeRTOS/portable/MPLAB/PIC32MZ -isystem /Users/ejacobus/gitroot/amazon-freertos/demos/microchip/curiosity_pic32mzef/common/../../../common/include -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/jsmn -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/pkcs11 -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mcu_vendor/microchip/harmony/v2.05/bsp -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/FreeRTOS-Plus-TCP/include -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/FreeRTOS-Plus-TCP/source/portable/Compiler/GCC -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/system/common -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/include -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver_extension -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver_extension/common/include -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver_extension/driver/include -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver_extension/driver/source -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver/include -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/ota/portable/microchip/curiosity_pic32mzef -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/third_party/tinycbor -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/ota -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/cbor/src -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/defender/src -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/defender/metrics -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/defender/portable/freertos -isystem /Users/ejacobus/gitroot/amazon-freertos/lib/defender/report  -mnewlib-libc -std=gnu99 -fgnu89-inline -o CMakeFiles/afr_kernel.dir/lib/FreeRTOS/event_groups.c.obj   -c /Users/ejacobus/gitroot/amazon-freertos/lib/FreeRTOS/event_groups.c
+
+
 # ==================== Example ====================
 afr_mcu_port(compiler)
 
 # Compile definitions/macros
 target_compile_definitions(
     AFR::compiler::mcu_port
-    INTERFACE CURIOSITY_PIC32MZ-EF
+    INTERFACE CURIOSITY_PIC32MZ_EF
 )
 
 # Compiler flags
 target_compile_options(
     AFR::compiler::mcu_port
     INTERFACE
-        -mnewlib-libc -std=gnu99 -fgnu89-inline
+       -g -x c -ffunction-sections -O1 -mprocessor=32MZ2048EFM100 -mnewlib-libc -std=gnu99 -fgnu89-inline
 )
 
 # Global include directories
@@ -123,67 +128,49 @@ target_sources(
     AFR::kernel::mcu_port
     INTERFACE
         "${AFR_MODULES_DIR}/FreeRTOS/portable/MPLAB/PIC32MZ/port.c"
-        "${AFR_MODULES_DIR}/FreeRTOS/portable/MPLAB/PIC32MZ/port_asm.S"
+#        "${AFR_MODULES_DIR}/FreeRTOS/portable/MPLAB/PIC32MZ/port_asm.S"
         "${AFR_MODULES_DIR}/FreeRTOS/portable/MPLAB/PIC32MZ/portmacro.h"
         "${AFR_MODULES_DIR}/FreeRTOS/portable/MemMang/heap_4.c"
 )
 target_include_directories(
     AFR::kernel::mcu_port
     INTERFACE
-        "../../../../lib/pkcs11/portable/microchip/curiosity_pic32mzef"
-        "../../../../lib/third_party/mbedtls/include"
-        "../../../../lib/include"
-        "../../../../lib/include/private"
-        "../common/config_files"
-        "../../../../lib/FreeRTOS/portable/MPLAB/PIC32MZ"
-        "../../../common/include"
-        "../../../../lib/third_party/jsmn"
-        "../../../../lib/third_party/pkcs11"
-        "../../../../lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework"
-        "../../../../lib/third_party/mcu_vendor/microchip/harmony/v2.05/bsp"
-        "../../../../lib/FreeRTOS/portable/MPLAB/PIC32MZ"
-        "../../tmp"
-        "../common/application_code/microchip_code"
-        "../../../../lib/FreeRTOS-Plus-TCP/include"
-        "../../../../lib/FreeRTOS-Plus-TCP/source/portable/Compiler/GCC"
-        "../../../../lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/system/common"
-        "../../../../lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/include"
-        "../../../../lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver_extension"
-        "../../../../lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver_extension/common/include"
-        "../../../../lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver_extension/driver/include"
-        "../../../../lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver_extension/driver/source"
-        "../../../../lib/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver/include"
-        "../../../../lib/ota/portable/microchip/curiosity_pic32mzef"
-        "../../../../lib/third_party/tinycbor"
-        "../../../../lib/ota"
-        "../../../../lib/cbor/src"
-        "../../../../lib/defender/src"
-        "../../../../lib/defender/metrics"
-        "../../../../lib/defender/portable/freertos"
-        "../../../../lib/defender/report"
+        "${board_dir}"
+        "${board_dir}/config_files"
+        "${board_dir}/application_code/microchip_code"
+        "${AFR_MODULES_DIR}/pkcs11/portable/microchip/curiosity_pic32mzef"
+        "${AFR_MODULES_DIR}/third_party/mbedtls/include"
+        "${AFR_MODULES_DIR}/include"
+        "${AFR_MODULES_DIR}/include/private"
+        "${AFR_MODULES_DIR}/FreeRTOS/portable/MPLAB/PIC32MZ"
+        "${board_dir}/../../../common/include"
+        "${AFR_MODULES_DIR}/third_party/jsmn"
+        "${AFR_MODULES_DIR}/third_party/pkcs11"
+        "${AFR_MODULES_DIR}/third_party/mcu_vendor/microchip/harmony/v2.05/framework"
+        "${AFR_MODULES_DIR}/third_party/mcu_vendor/microchip/harmony/v2.05/bsp"
+        "${AFR_MODULES_DIR}/FreeRTOS/portable/MPLAB/PIC32MZ"
+        "${AFR_MODULES_DIR}/FreeRTOS-Plus-TCP/include"
+        "${AFR_MODULES_DIR}/FreeRTOS-Plus-TCP/source/portable/Compiler/GCC"
+        "${AFR_MODULES_DIR}/third_party/mcu_vendor/microchip/harmony/v2.05/framework/system/common"
+        "${AFR_MODULES_DIR}/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/include"
+        "${AFR_MODULES_DIR}/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver_extension"
+        "${AFR_MODULES_DIR}/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver_extension/common/include"
+        "${AFR_MODULES_DIR}/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver_extension/driver/include"
+        "${AFR_MODULES_DIR}/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver_extension/driver/source"
+        "${AFR_MODULES_DIR}/third_party/mcu_vendor/microchip/harmony/v2.05/framework/driver/wifi/wilc1000/wireless_driver/include"
+        "${AFR_MODULES_DIR}/ota/portable/microchip/curiosity_pic32mzef"
+        "${AFR_MODULES_DIR}/third_party/tinycbor"
+        "${AFR_MODULES_DIR}/ota"
+        "${AFR_MODULES_DIR}/cbor/src"
+        "${AFR_MODULES_DIR}/defender/src"
+        "${AFR_MODULES_DIR}/defender/metrics"
+        "${AFR_MODULES_DIR}/defender/portable/freertos"
+        "${AFR_MODULES_DIR}/defender/report"
 )
 
 # If you defined the driver and freertos portable target separately, you can use afr_mcu_port with
 # DEPENDS keyword, e.g.,
 # afr_mcu_port(kernel DEPENDS my_board_driver freertos_port)
-
-# POSIX
-afr_mcu_port(posix)
-set(posix_port_dir "${AFR_MODULES_DIR}/FreeRTOS-Plus-POSIX/include/portable/microchip/curiosity_pic32mzef")
-target_sources(
-    AFR::posix::mcu_port
-    INTERFACE "${posix_port_dir}/FreeRTOS_POSIX_portable.h"
-)
-
-target_include_directories(
-    AFR::posix::mcu_port
-    INTERFACE "${posix_port_dir}"
-)
-
-target_link_libraries(
-    AFR::posix::mcu_port
-    INTERFACE AFR::freertos_plus_posix
-)
 
 
 # WiFi
