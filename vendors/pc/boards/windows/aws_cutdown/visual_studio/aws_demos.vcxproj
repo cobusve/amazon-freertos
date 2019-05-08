@@ -234,7 +234,6 @@
     <ClInclude Include="..\..\..\..\..\..\modules\libraries\standard\mqtt\src\private\iot_mqtt_internal.h" />
     <ClInclude Include="..\..\..\..\..\..\modules\libraries\standard\provisioning\include\aws_dev_mode_key_provisioning.h" />
     <ClInclude Include="..\..\..\..\..\..\modules\libraries\standard\tls\include\aws_tls.h" />
-    <ClInclude Include="..\..\..\..\..\..\modules\libraries\standard\utils\include\aws_system_init.h" />
     <ClInclude Include="..\..\..\..\..\..\modules\ports\pkcs11\include\aws_pkcs11.h" />
     <ClInclude Include="..\..\..\..\..\..\modules\ports\pkcs11\mbedtls\threading_alt.h" />
     <ClInclude Include="..\..\..\..\..\..\modules\ports\posix\include\FreeRTOS_POSIX\errno.h" />
@@ -417,7 +416,6 @@
     <ClCompile Include="..\..\..\..\..\..\modules\libraries\standard\mqtt\src\iot_mqtt_validate.c" />
     <ClCompile Include="..\..\..\..\..\..\modules\libraries\standard\provisioning\src\aws_dev_mode_key_provisioning.c" />
     <ClCompile Include="..\..\..\..\..\..\modules\libraries\standard\tls\src\aws_tls.c" />
-    <ClCompile Include="..\..\..\..\..\..\modules\libraries\standard\utils\src\aws_system_init.c" />
     <ClCompile Include="..\..\..\..\..\..\modules\ports\pkcs11\mbedtls\aws_pkcs11_mbedtls.c" />
     <ClCompile Include="..\..\..\..\..\..\modules\ports\secure_sockets\freertos_plus_tcp\aws_secure_sockets.c" />
     <ClCompile Include="..\..\ports\pkcs11\aws_pkcs11_pal.c" />

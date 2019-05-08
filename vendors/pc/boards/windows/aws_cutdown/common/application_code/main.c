@@ -157,9 +157,6 @@ void vApplicationIPNetworkEventHook( eIPCallbackEvent_t eNetworkEvent )
              * by production ready key provisioning mechanism. */
             vDevModeKeyProvisioning( );
 
-            /* Initialize AWS system libraries */
-            SYSTEM_Init();
-
             /* Start the demo tasks. */
             DEMO_RUNNER_RunDemos();
 

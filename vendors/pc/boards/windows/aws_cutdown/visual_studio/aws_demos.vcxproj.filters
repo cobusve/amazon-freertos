@@ -49,15 +49,6 @@
     <Filter Include="application_code">
       <UniqueIdentifier>{95399cf8-0b6b-43c9-b087-b5ac0cc14496}</UniqueIdentifier>
     </Filter>
-    <Filter Include="modules\libraries\standard\utils">
-      <UniqueIdentifier>{20f98d6e-3811-466c-bce0-3ed806502b30}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="modules\libraries\standard\utils\src">
-      <UniqueIdentifier>{be575f4a-22e1-487e-953b-ab532751c16a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="modules\libraries\standard\utils\include">
-      <UniqueIdentifier>{4e7b48df-1672-41fd-ac15-f80ee0c275ae}</UniqueIdentifier>
-    </Filter>
     <Filter Include="modules\libraries\standard\provisioning">
       <UniqueIdentifier>{0c825f95-a172-4d35-b673-19b2ba9639f7}</UniqueIdentifier>
     </Filter>
@@ -296,9 +287,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\..\freertos_kernel\portable\MSVC-MingW\portmacro.h">
       <Filter>freertos_kernel\portable\MSVC-MingW</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\modules\libraries\standard\utils\include\aws_system_init.h">
-      <Filter>modules\libraries\standard\utils\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\..\modules\libraries\standard\provisioning\include\aws_dev_mode_key_provisioning.h">
       <Filter>modules\libraries\standard\provisioning\include</Filter>
@@ -799,9 +787,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\freertos_kernel\portable\MSVC-MingW\port.c">
       <Filter>freertos_kernel\portable\MSVC-MingW</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\modules\libraries\standard\utils\src\aws_system_init.c">
-      <Filter>modules\libraries\standard\utils\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\modules\libraries\standard\provisioning\src\aws_dev_mode_key_provisioning.c">
       <Filter>modules\libraries\standard\provisioning\src</Filter>
