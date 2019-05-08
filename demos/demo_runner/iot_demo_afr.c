@@ -328,7 +328,8 @@ void runDemoTask( void * pArgument )
         awsIotMqttMode = ( demoConnectedNetwork != AWSIOT_NETWORK_TYPE_BLE );
 
         /* Run the demo. */
-        status = pContext->demoFunction( awsIotMqttMode,
+        //status = pContext->demoFunction( awsIotMqttMode,
+		status = pContext->demoFunction( false,
                                          clientcredentialIOT_THING_NAME,
                                          &serverInfo,
                                          &credentials,

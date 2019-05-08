@@ -33,7 +33,6 @@
 
 #include <stdint.h>
 #include "jsmn.h"
-#include "FreeRTOS.h"
 
 /**
  *

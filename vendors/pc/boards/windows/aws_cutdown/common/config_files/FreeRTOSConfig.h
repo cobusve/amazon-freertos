@@ -80,8 +80,6 @@
 unsigned long ulGetRunTimeCounterValue( void );
 void vConfigureTimerForRunTimeStats( void );
 #define configGENERATE_RUN_TIME_STATS    0
-#define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS()    vConfigureTimerForRunTimeStats()
-#define portGET_RUN_TIME_COUNTER_VALUE()            ulGetRunTimeCounterValue()
 
 /* Co-routine definitions. */
 #define configUSE_CO_ROUTINES                   0
