@@ -294,9 +294,6 @@
     <ClInclude Include="..\..\..\..\..\..\modules\libraries\standard\common\include\iot_init.h">
       <Filter>modules\libraries\standard\common\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\common\config_files\aws_bufferpool_config.h">
-      <Filter>config_files</Filter>
-    </ClInclude>
     <ClInclude Include="..\common\config_files\aws_demo_config.h">
       <Filter>config_files</Filter>
     </ClInclude>

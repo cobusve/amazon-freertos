@@ -158,7 +158,6 @@
     <ClInclude Include="..\..\..\..\..\..\modules\ports\secure_sockets\include\aws_secure_sockets_config_defaults.h" />
     <ClInclude Include="..\..\..\..\..\..\modules\ports\secure_sockets\include\aws_secure_sockets_wrapper_metrics.h" />
     <ClInclude Include="..\common\application_code\aws_demo_logging.h" />
-    <ClInclude Include="..\common\config_files\aws_bufferpool_config.h" />
     <ClInclude Include="..\common\config_files\aws_demo_config.h" />
     <ClInclude Include="..\common\config_files\aws_iot_network_config.h" />
     <ClInclude Include="..\common\config_files\aws_mqtt_agent_config.h" />
