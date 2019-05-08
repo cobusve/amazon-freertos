@@ -32,9 +32,9 @@
 #define IOT_DEMO_MQTT_PUBLISH_BURST_SIZE     ( 10 )
 
 /* Global logging configuration. */
-#define IOT_LOG_LEVEL_DEMO                   IOT_LOG_INFO
-#define IOT_LOG_LEVEL_GLOBAL                 IOT_LOG_INFO
-
+#define IOT_LOG_LEVEL_DEMO                   IOT_LOG_DEBUG
+#define IOT_LOG_LEVEL_GLOBAL                 IOT_LOG_DEBUG
+#define IOT_LOG_LEVEL_PLATFORM	             IOT_LOG_INFO
 /* Uncomment one of these definitions to override the log level configuration for
  * a specific library. */
 /* #define IOT_LOG_LEVEL_PLATFORM               IOT_LOG_INFO */

@@ -231,13 +231,14 @@ static IotNetworkError_t _tlsSetup( const IotNetworkCredentialsAfr_t * pAfrCrede
     /* ALPN options for AWS IoT. */
     const char * ppcALPNProtos[] = { socketsAWS_IOT_ALPN_MQTT };
 
+#if defined(HAS_TLS)
     /* Set secured option. */
     socketStatus = SOCKETS_SetSockOpt( tcpSocket,
                                        0,
                                        SOCKETS_SO_REQUIRE_TLS,
                                        NULL,
                                        0 );
-
+#endif
     if( socketStatus != SOCKETS_ERROR_NONE )
     {
         IotLogError( "Failed to set secured option for new connection." );
@@ -379,7 +380,10 @@ IotNetworkError_t IotNetworkAfr_Create( void * pConnectionInfo,
     {
         IotLogError( "Failed to establish new connection." );
         _IOT_SET_AND_GOTO_CLEANUP( IOT_NETWORK_SYSTEM_ERROR );
-    }
+	}
+	else {
+		IotLogInfo("TCP Connected succesfully.");
+	}
 
     /* Set a long timeout for receive. */
     socketStatus = SOCKETS_SetSockOpt( tcpSocket,

@@ -31,10 +31,19 @@
 #include "FreeRTOS_IP.h"
 #include "FreeRTOS_Sockets.h"
 #include "aws_secure_sockets.h"
-#include "aws_tls.h"
+
+#if defined(HAS_TLS)
+	#include "aws_tls.h"
+	#include "aws_pkcs11.h"
+	#include "aws_crypto.h"
+#else
+    #define CK_RV unsigned long int  
+    void TLS_Cleanup(void* context) {}
+	int32_t TLS_Recv(void* context, char* buffer, int32_t len) { return SOCKETS_EINVAL; }
+	int32_t TLS_Send(void* context, char* buffer, int32_t len) { return SOCKETS_EINVAL; }
+
+#endif
 #include "task.h"
-#include "aws_pkcs11.h"
-#include "aws_crypto.h"
 
 /* Internal context structure. */
 typedef struct SSOCKETContext
@@ -150,7 +159,9 @@ int32_t SOCKETS_Connect( Socket_t xSocket,
 {
     int32_t lStatus = SOCKETS_ERROR_NONE;
     SSOCKETContextPtr_t pxContext = ( SSOCKETContextPtr_t ) xSocket; /*lint !e9087 cast used for portability. */
+#if defined(HAS_TLS)
     TLSParams_t xTLSParams = { 0 };
+#endif
     struct freertos_sockaddr xTempAddress = { 0 };
 
     if( ( pxContext != SOCKETS_INVALID_SOCKET ) && ( pxAddress != NULL ) )
@@ -166,6 +177,7 @@ int32_t SOCKETS_Connect( Socket_t xSocket,
         xTempAddress.sin_port = pxAddress->usPort;
         lStatus = FreeRTOS_connect( pxContext->xSocket, &xTempAddress, xAddressLength );
 
+#if defined(HAS_TLS)
         /* Negotiate TLS if requested. */
         if( ( SOCKETS_ERROR_NONE == lStatus ) && ( pdTRUE == pxContext->xRequireTLS ) )
         {
@@ -190,6 +202,7 @@ int32_t SOCKETS_Connect( Socket_t xSocket,
                 }
             }
         }
+#endif
     }
     else
     {
@@ -527,6 +540,7 @@ BaseType_t SOCKETS_Init( void )
 }
 /*-----------------------------------------------------------*/
 
+#if defined(HAS_TLS)
 /**
  * @brief Create a static PKCS #11 crypto session handle to share across socket
  * and FreeRTOS+TCP threads. Assume that two or more threads may race to be the
@@ -622,15 +636,19 @@ static CK_RV prvSocketsGetCryptoSession( SemaphoreHandle_t * pxSessionLock,
 
     return xResult;
 }
+#endif
+
 /*-----------------------------------------------------------*/
 
 uint32_t ulRand( void )
 {
-    CK_RV xResult = 0;
+	uint32_t ulRandomValue = 0;
+   
+#if defined(HAS_TLS)
+	CK_RV xResult = 0;
     SemaphoreHandle_t xSessionLock = NULL;
     CK_SESSION_HANDLE xPkcs11Session = 0;
     CK_FUNCTION_LIST_PTR pxPkcs11FunctionList = NULL;
-    uint32_t ulRandomValue = 0;
 
     xResult = prvSocketsGetCryptoSession( &xSessionLock,
                                           &xPkcs11Session,
@@ -650,9 +668,12 @@ uint32_t ulRand( void )
     {
         ulRandomValue = 0;
     }
-
+#else
+	ulRandomValue = 1;
+#endif
     return ulRandomValue;
 }
+
 /*-----------------------------------------------------------*/
 
 /**
@@ -664,6 +685,8 @@ uint32_t ulApplicationGetNextSequenceNumber( uint32_t ulSourceAddress,
                                              uint32_t ulDestinationAddress,
                                              uint16_t usDestinationPort )
 {
+	uint32_t ulNextSequenceNumber = 0;
+#if defined (HAS_TLS)
     CK_RV xResult = CKR_OK;
     SemaphoreHandle_t xSessionLock = NULL;
     CK_SESSION_HANDLE xPkcs11Session = 0;
@@ -671,7 +694,7 @@ uint32_t ulApplicationGetNextSequenceNumber( uint32_t ulSourceAddress,
     CK_MECHANISM xMechSha256 = { 0 };
     uint8_t ucSha256Result[ cryptoSHA256_DIGEST_BYTES ];
     CK_ULONG ulLength = sizeof( ucSha256Result );
-    uint32_t ulNextSequenceNumber = 0;
+   
     static uint64_t ullKey;
     static CK_BBOOL xKeyIsInitialized = CK_FALSE;
 
@@ -773,6 +796,10 @@ uint32_t ulApplicationGetNextSequenceNumber( uint32_t ulSourceAddress,
          * handling of connections from the same device that haven't fully timed out. */
         ulNextSequenceNumber += xTaskGetTickCount() / 4;
     }
+
+#else
+ulNextSequenceNumber = 1;
+#endif
 
     return ulNextSequenceNumber;
 }
