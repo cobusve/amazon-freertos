@@ -35,17 +35,17 @@
 /*
  * MQTT Broker endpoint.
  */
-static const char clientcredentialMQTT_BROKER_ENDPOINT[] = "Paste AWS IoT Broker endpoint here.";
+static const char clientcredentialMQTT_BROKER_ENDPOINT[] = "test.mosquitto.org";
 
 
 /* Use of a "define" and not a "static const" here to be able to
  * use pre-compile concatenation on the string. */
-#define clientcredentialIOT_THING_NAME               "Paste AWS IoT Thing name here."
+#define clientcredentialIOT_THING_NAME               "EC2_Test_Thing"
 
 /*
  * Port number the MQTT broker is using.
  */
-#define clientcredentialMQTT_BROKER_PORT             8883
+#define clientcredentialMQTT_BROKER_PORT             1883
 
 /*
  * Port number the Green Grass Discovery use for JSON retrieval from cloud is using.
