@@ -8,32 +8,6 @@ This library allows other libraries to generate and print log messages, which ca
 - Automatic printing of log level, library name, and time with every message. The information printed with each message [may be customized](@ref IotLogConfig_t).
 - A [function to print the contents of buffers](@ref logging_function_printbuffer) when using the [debug](@ref IOT_LOG_DEBUG) log level. This allows the contents of memory to be easily examined.
 
-@dependencies_section{logging}
-@dependencies_brief{logging library}
-
-@dot "Logging direct dependencies"
-digraph logging_dependencies
-{
-    node[shape=box, fontname=Helvetica, fontsize=10, style=filled];
-    edge[fontname=Helvetica, fontsize=10];
-    logging[label="Logging", fillcolor="#aed8a9ff"];
-    subgraph
-    {
-        rank = same;
-        platform_clock[label="Clock", fillcolor="#e89025ff", URL="@ref platform_clock"];
-        static_memory[label="Static memory", fillcolor="#e89025ff" URL="@ref static_memory"];
-    }
-    standard_library[label="Standard library\nstdarg, stdbool, stddef,\nstdint, stdio, string", fillcolor="#d15555ff"];
-    logging -> platform_clock;
-    logging -> static_memory [style="dashed", label=" if static memory only"];
-    logging -> standard_library;
-}
-@enddot
-
-Currently, the logging library has the following dependencies:
-- The [platform clock component](@ref platform_clock) for [generating the timestring](@ref platform_clock_function_gettimestring) to print in log messages.
-- When @ref IOT_STATIC_MEMORY_ONLY is `1`, the logging library depends on the [platform static memory component](@ref static_memory) to allocate buffers for log messages. When @ref IOT_STATIC_MEMORY_ONLY is `0`, the logging library will default to using the standard library's [malloc](http://pubs.opengroup.org/onlinepubs/9699919799/functions/malloc.html) and [free](http://pubs.opengroup.org/onlinepubs/9699919799/functions/free.html) functions. The logging library's memory allocation functions [may always be overridden](@ref logging_config_memory). Note that the logging library will silently discard logs if it fails to allocate memory for the message.
-
 @section logging_setup_use Setup and use
 @brief How to set up and use the logging library.
 

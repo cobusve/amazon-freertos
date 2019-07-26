@@ -2,6 +2,9 @@
 @INCLUDE_PATH = doc/config
 @INCLUDE = common
 
+LAYOUT_FILE = doc/config/layout_taskpool.xml
+
+
 # Basic project information.
 PROJECT_NAME = "Task Pool"
 PROJECT_BRIEF = "Task pool library"
@@ -17,15 +20,13 @@ INPUT = doc/lib \
         libraries/c_sdk/standard/common/include/private \
         libraries/c_sdk/standard/common/include/types \
         libraries/c_sdk/standard/common/include \
-        libraries/c_sdk/standard/common/taskpool \
-        libraries/c_sdk/standard/common/test
+        libraries/c_sdk/standard/common/taskpool 
 
 # Library file names.
-FILE_PATTERNS = *taskpool*.c *taskpool*.h *taskpool*.txt
+FILE_PATTERNS =  iot_taskpool.h iot_taskpool_types.h *taskpool*.txt
 
 # External tag files required by this library.
 TAGFILES = doc/tag/main.tag=../main \
            doc/tag/linear_containers.tag=../linear_containers \
            doc/tag/logging.tag=../logging \
-           doc/tag/platform.tag=../platform \
-           doc/tag/static_memory.tag=../static_memory \
+           doc/tag/platform.tag=../platform 

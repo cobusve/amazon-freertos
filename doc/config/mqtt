@@ -2,6 +2,8 @@
 @INCLUDE_PATH = doc/config
 @INCLUDE = common
 
+LAYOUT_FILE = doc/config/layout_mqtt.xml
+
 # Basic project information.
 PROJECT_NAME = "MQTT"
 PROJECT_BRIEF = "MQTT 3.1.1 client library"
@@ -22,14 +24,11 @@ INPUT = doc \
         libraries/c_sdk/standard/mqtt/include/types \
         libraries/c_sdk/standard/mqtt/src/private \
         libraries/c_sdk/standard/mqtt/src \
-        demos/ \
-        libraries/c_sdk/standard/mqtt/test \
-        libraries/c_sdk/standard/mqtt/test/unit \
-        libraries/c_sdk/standard/mqtt/test/access \
-        libraries/c_sdk/standard/mqtt/test/system 
+
 
 # Library file names.
-FILE_PATTERNS = *mqtt*.c *mqtt*.h *mqtt*.txt
+FILE_PATTERNS = iot_mqtt*.c iot_mqtt*.h *mqtt*.txt
+EXCLUDE_PATTERNS = iot_mqtt_agent.h iot_mqtt_agent.c iot_mqtt_static_memory.c iot_mqtt_agent_config_defaults.h iot_mqtt_lib.h iot_mqtt_config_defaults.h aws_mqtt_config.h
 
 # External tag files required by this library.
 TAGFILES = doc/tag/main.tag=../main \

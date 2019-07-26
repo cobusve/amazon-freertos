@@ -6,8 +6,14 @@
 PROJECT_NAME = "Logging"
 PROJECT_BRIEF = "Generate and print log messages"
 
+LAYOUT_FILE = doc/config/layout_logging.xml
+
 # Library documentation output directory.
 HTML_OUTPUT = logging
+
+# Generate documentation for MQTT packet serializer overrides.
+PREDEFINED += "LIBRARY_LOG_LEVEL=IOT_LOG_INFO"
+PREDEFINED += "LIBRARY_LOG_NAME=1"
 
 # Generate Doxygen tag file for this library.
 GENERATE_TAGFILE = doc/tag/logging.tag

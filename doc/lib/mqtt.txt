@@ -14,50 +14,6 @@ This MQTT library implements a subset of the MQTT 3.1.1 standard for compatibili
 
 @attention Currently, this library does not support QoS 2 MQTT messages.
 
-@dependencies_section{mqtt}
-@dependencies_brief{MQTT library}
-
-@dot "MQTT direct dependencies"
-digraph mqtt_dependencies
-{
-    node[shape=box, fontname=Helvetica, fontsize=10, style=filled];
-    edge[fontname=Helvetica, fontsize=10];
-    subgraph
-    {
-        mqtt[label="MQTT", fillcolor="#cc00ccff"];
-    }
-    subgraph
-    {
-        node[fillcolor="#aed8a9ff"];
-        rank = same;
-        linear_containers[label="List/Queue", URL="@ref linear_containers"];
-        logging[label="Logging", URL="@ref logging"];
-        static_memory[label="Static memory", URL="@ref static_memory"];
-    }
-    subgraph
-    {
-        rank = same;
-        platform_threads[label="Thread management", fillcolor="#e89025ff", URL="@ref platform_threads"];
-        platform_clock[label="Clock", fillcolor="#e89025ff", URL="@ref platform_clock"];
-        platform_network[label="Network", fillcolor="#e89025ff", URL="@ref platform_network"];
-    }
-    mqtt -> linear_containers;
-    mqtt -> logging [label=" if logging enabled", style="dashed"];
-    mqtt -> platform_threads;
-    mqtt -> platform_clock;
-    mqtt -> platform_network;
-    mqtt -> static_memory [label=" if static memory only", style="dashed"];
-    logging -> platform_clock;
-    logging -> static_memory [label=" if static memory only", style="dashed"];
-}
-@enddot
-
-Currently, the MQTT library has the following dependencies:
-- The queue library for maintaining the data structures for managing in-progress MQTT operations.
-- The logging library may be used if @ref IOT_LOG_LEVEL_MQTT is not #IOT_LOG_NONE.
-- The platform layer provides an interface to the operating system for thread management, clock functions, networking, etc.
-
-In addition to the components above, the MQTT library also depends on C standard library headers.
 */
 
 /**
