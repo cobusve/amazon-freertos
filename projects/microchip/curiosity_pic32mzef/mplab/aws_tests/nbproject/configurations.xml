@@ -996,6 +996,11 @@
                   </logicalFolder>
                 </logicalFolder>
               </logicalFolder>
+              <logicalFolder name="tcpip" displayName="tcpip" projectFiles="true">
+                <logicalFolder name="src" displayName="src" projectFiles="true">
+                  <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/tcpip/src/tcpip_helpers.c</itemPath>
+                </logicalFolder>
+              </logicalFolder>
             </logicalFolder>
           </logicalFolder>
         </logicalFolder>
@@ -1098,6 +1103,7 @@
     <Elem>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c</Elem>
     <Elem>../../../../../libraries/abstractions/pkcs11/mbedtls</Elem>
     <Elem>../../../../../vendors/microchip/boards/curiosity_pic32mzef/aws_tests/application_code/microchip_code</Elem>
+    <Elem>../../../../../vendors/microchip/harmony/v2.05/framework/tcpip</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

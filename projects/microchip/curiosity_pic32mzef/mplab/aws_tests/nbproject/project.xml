@@ -22,6 +22,7 @@
                 <sourceRootElem>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c</sourceRootElem>
                 <sourceRootElem>../../../../../libraries/abstractions/pkcs11/mbedtls</sourceRootElem>
                 <sourceRootElem>../../../../../vendors/microchip/boards/curiosity_pic32mzef/aws_tests/application_code/microchip_code</sourceRootElem>
+                <sourceRootElem>../../../../../vendors/microchip/harmony/v2.05/framework/tcpip</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
