@@ -49,7 +49,7 @@
 #define mainLOGGING_TASK_STACK_SIZE         ( configMINIMAL_STACK_SIZE * 5 )
 #define mainLOGGING_MESSAGE_QUEUE_LENGTH    ( 32 )
 
-#define mainTEST_RUNNER_TASK_STACK_SIZE     ( configMINIMAL_STACK_SIZE * 8 )
+#define mainTEST_RUNNER_TASK_STACK_SIZE     ( configMINIMAL_STACK_SIZE * 5 )
 /* The default IP and MAC address used by the demo.  The address configuration
  * defined here will be used if ipconfigUSE_DHCP is 0, or if ipconfigUSE_DHCP is
  * 1 but a DHCP server could not be contacted.  See the online documentation for
@@ -157,12 +157,44 @@ static void prvMiscInitialization( void )
 }
 /*-----------------------------------------------------------*/
 
+
+void watchDogTask(void * p)
+{
+    static volatile int numTasksRunning = 0; 
+    
+    while (1) {
+        // Yield for 5 seconds
+        vTaskDelay(pdMS_TO_TICKS(5000));
+
+        static TaskStatus_t pxTaskStatusArray[20];
+
+        if( pxTaskStatusArray != NULL )
+        {
+            // Clear the dest first
+            memset(pxTaskStatusArray, 0, sizeof(pxTaskStatusArray));
+
+            /* Generate the (binary) data. */
+            numTasksRunning = uxTaskGetSystemState( pxTaskStatusArray, 20, NULL );
+            
+            numTasksRunning = 0;
+        }
+    }
+}
+
+
 void vApplicationIPNetworkEventHook( eIPCallbackEvent_t eNetworkEvent )
 {
     uint32_t ulIPAddress, ulNetMask, ulGatewayAddress, ulDNSServerAddress;
     char cBuffer[ 16 ];
     static BaseType_t xTasksAlreadyCreated = pdFALSE;
-    
+
+    // Create our watchdog task
+    xTaskCreate( watchDogTask,
+                 "Watchdog",
+                 mainTEST_RUNNER_TASK_STACK_SIZE,
+                 NULL,
+                 10, NULL );
+            
     /* If the network has just come up...*/
     if( eNetworkEvent == eNetworkUp )
     {
@@ -332,43 +364,3 @@ void vApplicationIdleHook( void )
 }
 /*-----------------------------------------------------------*/
 
-
-/**
- * @brief Warn user if pvPortMalloc fails.
- *
- * Called if a call to pvPortMalloc() fails because there is insufficient
- * free memory available in the FreeRTOS heap.  pvPortMalloc() is called
- * internally by FreeRTOS API functions that create tasks, queues, software
- * timers, and semaphores.  The size of the FreeRTOS heap is set by the
- * configTOTAL_HEAP_SIZE configuration constant in FreeRTOSConfig.h.
- *
- */
-void vApplicationMallocFailedHook()
-{
-    /* The TCP tests will test behavior when the entire heap is allocated. In
-     * order to avoid interfering with those tests, this function does nothing. */
-}
-/*-----------------------------------------------------------*/
-
-/**
- * @brief Loop forever if stack overflow is detected.
- *
- * If configCHECK_FOR_STACK_OVERFLOW is set to 1,
- * this hook provides a location for applications to
- * define a response to a stack overflow.
- *
- * Use this hook to help identify that a stack overflow
- * has occurred.
- *
- */
-void vApplicationStackOverflowHook( TaskHandle_t xTask,
-                                    char * pcTaskName )
-{
-    portDISABLE_INTERRUPTS();
-
-    /* Loop forever */
-    for( ; ; )
-    {
-    }
-}
-/*-----------------------------------------------------------*/

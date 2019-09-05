@@ -37,7 +37,7 @@
  * Each task consumes both stack and heap space, which may cause memory allocation
  * failures if too many tasks are created.
  */
-#define pkcs11testMULTI_THREAD_TASK_COUNT     ( 2 )
+#define pkcs11testMULTI_THREAD_TASK_COUNT     ( 4 )
 
 /**
  * @brief The number of iterations of the test that will run in multithread tests.
@@ -46,7 +46,7 @@
  * boards. Ensure that pkcs11testEVENT_GROUP_TIMEOUT is long enough to accommodate
  * all iterations of the loop.
  */
-#define pkcs11testMULTI_THREAD_LOOP_COUNT     ( 10 )
+#define pkcs11testMULTI_THREAD_LOOP_COUNT     ( 300 )
 
 /**
  * @brief

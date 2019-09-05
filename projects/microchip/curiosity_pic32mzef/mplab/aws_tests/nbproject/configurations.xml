@@ -704,7 +704,6 @@
                 <logicalFolder name="microchip_code"
                                displayName="microchip_code"
                                projectFiles="true">
-                  <itemPath>../../../../../vendors/microchip/boards/curiosity_pic32mzef/aws_tests/application_code/microchip_code/rtos_hooks.c</itemPath>
                   <itemPath>../../../../../vendors/microchip/boards/curiosity_pic32mzef/aws_tests/application_code/microchip_code/system_exceptions.c</itemPath>
                   <itemPath>../../../../../vendors/microchip/boards/curiosity_pic32mzef/aws_tests/application_code/microchip_code/system_init.c</itemPath>
                   <itemPath>../../../../../vendors/microchip/boards/curiosity_pic32mzef/aws_tests/application_code/microchip_code/system_interrupt.c</itemPath>
@@ -997,14 +996,6 @@
                   </logicalFolder>
                 </logicalFolder>
               </logicalFolder>
-              <logicalFolder name="tcpip" displayName="tcpip" projectFiles="true">
-                <logicalFolder name="src" displayName="src" projectFiles="true">
-                  <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/tcpip/src/tcpip_heap_alloc.c</itemPath>
-                  <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/tcpip/src/tcpip_heap_external.c</itemPath>
-                  <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/tcpip/src/tcpip_helpers.c</itemPath>
-                  <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/tcpip/src/tcpip_packet.c</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
           </logicalFolder>
         </logicalFolder>
@@ -1118,11 +1109,11 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>pk4hybrid</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.20</languageToolchainVersion>
-        <platform>3</platform>
+        <languageToolchainVersion>2.10</languageToolchainVersion>
+        <platform>4</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC32MZ-EF_DFP" vendor="Microchip" version="1.0.20"/>
+        <pack name="PIC32MZ-EF_DFP" vendor="Microchip" version="1.0.17"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -1149,7 +1140,7 @@
                         DD="dist/pic32mz_ef_curiosity/debug/bootloader_tests.debug.elf">
           </makeArtifact>
           <useAlternateLoadableFile>false</useAlternateLoadableFile>
-          <parseOnProdLoad>false</parseOnProdLoad>
+          <parseOnProdLoad>true</parseOnProdLoad>
           <alternateLoadableFile></alternateLoadableFile>
         </loading>
         <subordinates>
@@ -1178,7 +1169,7 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
         <property key="make-warnings-into-errors" value="false"/>
-        <property key="optimization-level" value="-O1"/>
+        <property key="optimization-level" value=""/>
         <property key="place-data-into-section" value="false"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
@@ -1603,7 +1594,6 @@
         <property key="SPI/I2S 4" value="true"/>
         <property key="SPI/I2S 5" value="true"/>
         <property key="SPI/I2S 6" value="true"/>
-        <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
         <property key="TIMER1" value="true"/>
         <property key="TIMER2" value="true"/>
         <property key="TIMER3" value="true"/>
@@ -1668,13 +1658,13 @@
         <targetDevice>PIC32MZ2048EFM100</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>pk4hybrid</platformTool>
+        <platformTool>PKOBSKDEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.20</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>4</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC32MZ-EF_DFP" vendor="Microchip" version="1.0.20"/>
+        <pack name="PIC32MZ-EF_DFP" vendor="Microchip" version="1.0.17"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -1701,7 +1691,7 @@
                         DD="dist/pic32mz_ef_curiosity/debug/bootloader_tests.debug.elf">
           </makeArtifact>
           <useAlternateLoadableFile>false</useAlternateLoadableFile>
-          <parseOnProdLoad>false</parseOnProdLoad>
+          <parseOnProdLoad>true</parseOnProdLoad>
           <alternateLoadableFile></alternateLoadableFile>
         </loading>
         <subordinates>
@@ -1746,7 +1736,7 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
         <property key="make-warnings-into-errors" value="false"/>
-        <property key="optimization-level" value="-O1"/>
+        <property key="optimization-level" value=""/>
         <property key="place-data-into-section" value="false"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
@@ -2171,7 +2161,6 @@
         <property key="SPI/I2S 4" value="true"/>
         <property key="SPI/I2S 5" value="true"/>
         <property key="SPI/I2S 6" value="true"/>
-        <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
         <property key="TIMER1" value="true"/>
         <property key="TIMER2" value="true"/>
         <property key="TIMER3" value="true"/>

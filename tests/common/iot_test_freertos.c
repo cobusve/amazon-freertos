@@ -66,7 +66,7 @@ void vApplicationMallocFailedHook()
 void vApplicationStackOverflowHook( TaskHandle_t xTask,
                                     char * pcTaskName )
 {
-    configPRINTF( ( "ERROR: stack overflow with task %s\r\n", pcTaskName ) );
+    //configPRINTF( ( "ERROR: stack overflow with task %s\r\n", pcTaskName ) );
     portDISABLE_INTERRUPTS();
 
     /* Loop forever */

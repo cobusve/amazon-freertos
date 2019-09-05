@@ -38,7 +38,7 @@
  *
  * @todo Set this to the unique name of your IoT Thing.
  */
-#define clientcredentialIOT_THING_NAME               ""
+#define clientcredentialIOT_THING_NAME               "blah"
 
 /*
  * @brief Port number the MQTT broker is using.
@@ -55,13 +55,13 @@
  *
  * @todo If you are using Wi-Fi, set this to your network name.
  */
-#define clientcredentialWIFI_SSID                    ""
+#define clientcredentialWIFI_SSID                    "C14674"
 
 /*
  * @brief Password needed to join Wi-Fi network.
  * @todo If you are using WPA, set this to your network password.
  */
-#define clientcredentialWIFI_PASSWORD                ""
+#define clientcredentialWIFI_PASSWORD                "cobus111"
 
 /*
  * @brief Wi-Fi network security type.
