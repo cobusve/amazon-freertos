@@ -192,7 +192,7 @@ ATCA_STATUS hal_i2c_send(ATCAIface iface, uint8_t *txdata, int txlength)
             bytes_transferred = DRV_I2C_BytesTransferred(drvI2CMasterHandle, write_bufHandle);
         }
 
-        if (Transaction == DRV_I2C_BUFFER_EVENT_ERROR)
+        if ((Transaction == DRV_I2C_BUFFER_EVENT_ERROR) || (I2C1STATbits.BCL == 1))
         {
             return ATCA_COMM_FAIL;
         }
@@ -224,7 +224,7 @@ ATCA_STATUS hal_i2c_receive(ATCAIface iface, uint8_t *rxdata, uint16_t *rxlength
     do
     {
         Transaction = DRV_I2C_TransferStatusGet(drvI2CMasterHandle, read_bufHandle);
-        if (Transaction == DRV_I2C_BUFFER_EVENT_ERROR)
+        if ((Transaction == DRV_I2C_BUFFER_EVENT_ERROR) || (I2C1STATbits.BCL == 1))
         {
             return ATCA_COMM_FAIL;
         }
@@ -321,7 +321,7 @@ ATCA_STATUS hal_i2c_wake(ATCAIface iface)
         {
             Rx_Transaction = DRV_I2C_TransferStatusGet(drvI2CMasterHandle, read_bufHandle);
         }
-        while (Rx_Transaction != DRV_I2C_BUFFER_EVENT_COMPLETE && Rx_Transaction != DRV_I2C_BUFFER_EVENT_ERROR);
+        while (Rx_Transaction != DRV_I2C_BUFFER_EVENT_COMPLETE && Rx_Transaction != DRV_I2C_BUFFER_EVENT_ERROR );
     }
 
     if (memcmp(data, expected, 4) == 0)

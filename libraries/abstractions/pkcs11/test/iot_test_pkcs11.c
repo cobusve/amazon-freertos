@@ -1,4 +1,4 @@
-/*
+ /*
  * Amazon FreeRTOS PKCS#11 V1.0.8
  * Copyright (C) 2019 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
  *
@@ -26,7 +26,6 @@
 /* Standard includes. */
 #include <stdlib.h>
 #include <string.h>
-
 /* FreeRTOS includes. */
 #include "FreeRTOS.h"
 #include "FreeRTOSIPConfig.h"
@@ -2324,7 +2323,13 @@ TEST( Full_PKCS11_EC, AFQP_SignVerifyMultiThread )
     CK_OBJECT_HANDLE xPublicKey;
 
     configPRINTF( ( "Starting AFQP_SignVerifyMultiThread \r\n" ) );
-    
+    configPRINTF(("\n\nHEAP SIZE ALLOCATED FREERTOS: %zu\r\n\n", xPortGetFreeHeapSize()) );
+//    struct mallinfo mall;
+//    mall = mallinfo();
+//    configPRINTF(("\n\nHEAP SIZE ALLOCATED STD MALLOC: %zu\r\n\n", mall.fordblks) );
+//    configPRINTF(("\n\nHEAP ALLOCATED STD MALLOC: %zu\r\n\n", mall.uordblks) );
+//    configPRINTF(("\n\nHEAP MAX ALLOCATED STD MALLOC: %zu\r\n\n", mall.usmblks) );
+//    
     prvProvisionEcTestCredentials( &xPrivateKey, &xCertificate, &xPublicKey );
 
     for( xTaskNumber = 0; xTaskNumber < pkcs11testMULTI_THREAD_TASK_COUNT; xTaskNumber++ )

@@ -25,6 +25,7 @@
 
 /* Standard includes. */
 #include <time.h>
+#include <stdlib.h>
 
 /* FreeRTOS includes. */
 #include "FreeRTOS.h"
@@ -157,27 +158,59 @@ static void prvMiscInitialization( void )
 }
 /*-----------------------------------------------------------*/
 
+volatile uint32_t memtrap1 = 0;
+volatile uint32_t memtrap2 = 0;
+
+
+void * malloc_hook(size_t strlen)
+{
+    memtrap1++;
+    if(memtrap1 > 1)
+    {
+        for(;;);
+    }
+    void * returnPointer;
+    returnPointer = malloc(strlen);
+    memtrap1--;
+    return returnPointer;
+}    
+void free_hook(void * ptr)
+{
+    memtrap2++;
+    if(memtrap2 > 1)
+    {
+        for(;;);
+    }
+    free(ptr);
+    memtrap2--;
+   
+}    
+volatile int numTasksRunning = 0; 
+volatile TaskStatus_t pxTaskStatusArray[20];
 
 void watchDogTask(void * p)
 {
-    static volatile int numTasksRunning = 0; 
     
     while (1) {
         // Yield for 5 seconds
-        vTaskDelay(pdMS_TO_TICKS(5000));
-
-        static TaskStatus_t pxTaskStatusArray[20];
+        vTaskDelay(pdMS_TO_TICKS(10000));
 
         if( pxTaskStatusArray != NULL )
         {
             // Clear the dest first
-            memset(pxTaskStatusArray, 0, sizeof(pxTaskStatusArray));
-
-            /* Generate the (binary) data. */
-            numTasksRunning = uxTaskGetSystemState( pxTaskStatusArray, 20, NULL );
-            
-            numTasksRunning = 0;
-        }
+//            memset(pxTaskStatusArray, 0, sizeof(pxTaskStatusArray));
+//
+//            /* Generate the (binary) data. */
+//            numTasksRunning = uxTaskGetSystemState( pxTaskStatusArray, 20, NULL );
+//            
+//            numTasksRunning = 0;
+//            uint8_t i = 0;
+//            for(; i < 20; ++i)
+//            {
+//                configPRINTF(("%s\n", pxTaskStatusArray[i].pcTaskName )) ;
+//                       
+//            }
+         }
     }
 }
 

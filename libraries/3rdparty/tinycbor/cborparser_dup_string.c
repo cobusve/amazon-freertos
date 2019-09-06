@@ -35,6 +35,8 @@
 #include "cbor.h"
 #include "compilersupport_p.h"
 #include <stdlib.h>
+extern void * malloc_hook(size_t strlen);
+extern void free_hook(void * ptr);
 
 /**
  * \fn CborError cbor_value_dup_text_string(const CborValue *value, char **buffer, size_t *buflen, CborValue *next)
@@ -105,14 +107,14 @@ CborError _cbor_value_dup_string(const CborValue *value, void **buffer, size_t *
         return err;
 
     ++*buflen;
-    *buffer = malloc(*buflen);
+    *buffer = malloc_hook(*buflen);
     if (!*buffer) {
         /* out of memory */
         return CborErrorOutOfMemory;
     }
     err = _cbor_value_copy_string(value, *buffer, buflen, next);
     if (err) {
-        free(*buffer);
+        free_hook(*buffer);
         return err;
     }
     return CborNoError;

@@ -128,6 +128,7 @@ static void SendCommandCharacter(const void* cmdIoParam, char c);
 static bool IsCommandReady(const void* cmdIoParam);
 static char GetCommandCharacter(const void* cmdIoParam);
 static size_t ReadCommandCharacter(const void* cmdIoParam);
+extern void * malloc_hook(size_t strlen);
 
 const SYS_CMD_API sysConsoleApi =
 {
@@ -191,7 +192,7 @@ bool SYS_CMD_Initialize(const SYS_MODULE_INIT * const init )
     for(ix = 0; ix<COMMAND_HISTORY_DEPTH; ix++)
     {
         cmdNode* pN;
-        pN = (cmdNode*)malloc(sizeof(*pN));
+        pN = (cmdNode*)malloc_hook(sizeof(*pN));
 
         if(!pN)
         {
@@ -747,7 +748,7 @@ SYS_CMD_DEVICE_NODE* SYS_CMDIO_ADD(const SYS_CMD_API* opApi, const void* cmdIoPa
     // Create node
     SYS_CMD_DEVICE_NODE* pDevNode;
 
-    pDevNode = (SYS_CMD_DEVICE_NODE*)malloc(sizeof(*pDevNode));
+    pDevNode = (SYS_CMD_DEVICE_NODE*)malloc_hook(sizeof(*pDevNode));
     if (!pDevNode)
     {
         return 0;

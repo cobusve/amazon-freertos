@@ -67,7 +67,6 @@ SOFTWARE
 // Section: System Interrupt Vector Functions
 // *****************************************************************************
 // *****************************************************************************
- 
 void IntHandlerDrvUsartTransmitInstance0(void)
 {
     DRV_USART_TasksTransmit(sysObj.drvUsart0);
@@ -148,9 +147,29 @@ void IntHandlerDrvI2CInstance0(void)
 //void __ISR(_I2C1_BUS_VECTOR, ipl1AUTO) _IntHandlerDrvI2CErrorInstance0(void)
 void IntHandlerDrvI2CBusInstance0(void)
 {
-    /* TODO: Add code to process interrupt here */
-    /* Clear pending interrupt */
-    PLIB_INT_SourceFlagClear(INT_ID_0, INT_SOURCE_I2C_2_BUS);}
+
+    I2C1STATCLR = I2CxSTAT_BCL_MASK;
+    I2C1CONCLR =  I2CxCON_ON_MASK;
+
+    //while(1)
+    {
+        I2C1STATCLR = (_I2C1STAT_P_MASK | I2CxSTAT_S_MASK );
+        _nop();
+        _nop();
+        _nop();
+        _nop();
+        if(!(I2C1STAT & (_I2C1STAT_P_MASK | I2CxSTAT_S_MASK )))
+        {
+            //break;
+        }
+    }
+    I2C1CONSET =  I2CxCON_ON_MASK;
+    I2C1STATCLR = I2CxSTAT_BCL_MASK;
+
+    PLIB_INT_SourceFlagClear(INT_ID_0, INT_SOURCE_I2C_1_BUS);
+
+      
+}
 
 
 /*******************************************************************************

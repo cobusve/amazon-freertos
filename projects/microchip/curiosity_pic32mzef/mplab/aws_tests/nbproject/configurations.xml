@@ -923,6 +923,112 @@
                 </logicalFolder>
               </logicalFolder>
               <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
+                <logicalFolder name="i2c" displayName="i2c" projectFiles="true">
+                  <logicalFolder name="config" displayName="config" projectFiles="true">
+                  </logicalFolder>
+                  <logicalFolder name="processor" displayName="processor" projectFiles="true">
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/processor/i2c_processor.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/processor/i2c_p32mz1024efm124.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/processor/i2c_p32mz1024efm064.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/processor/i2c_p32mz2048efm124.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/processor/i2c_p32mz2048efm064.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/processor/i2c_p32mz2048efm144.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/processor/i2c_p32mz2048efm100.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/processor/i2c_p32xxxx.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/processor/i2c_p32mz1024efm144.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/processor/i2c_p32mz1024efm100.h</itemPath>
+                  </logicalFolder>
+                  <logicalFolder name="templates" displayName="templates" projectFiles="true">
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_MasterStop_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_StopInIdle_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveInterruptOnStart_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_MasterStartRepeat_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_IPMI_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_ReservedAddressProtect_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveAddressDetect_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_GeneralCallAddressDetect_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_ReceivedByteGet_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveDataDetect_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_GeneralCall_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_MasterStop_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveInterruptOnStop_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_TransmitterOverflow_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveBusCollisionDetect_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_TransmitterByteSend_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveInterruptOnStop_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_StopInIdle_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_TransmitterByteAcknowledge_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_ReceivedByteAcknowledge_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveBusCollisionDetect_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_MasterReceiverClock1Byte_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveBufferOverwrite_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveAddress10Bit_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_BaudRate_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveInterruptOnStart_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_Registers.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_MasterReceiverClock1Byte_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_StopDetect_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_ArbitrationLoss_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_ReceiverOverflow_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveReadRequest_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_TransmitterOverflow_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveDataHoldEnable_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_MasterStart_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveDataDetect_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_BaudRate_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_IPMI_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_StopDetect_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_TransmitterByteComplete_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveAddress7Bit_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_GeneralCall_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_ReceivedByteAvailable_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveClockHold_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_HighFrequency_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_TransmitterByteComplete_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_BusIdle_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_TransmitterBusy_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_TransmitterByteAcknowledge_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveMask_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_ReceivedByteAcknowledge_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_MasterStartRepeat_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_ReservedAddressProtect_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_MasterStart_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveDataHoldEnable_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_BusIdle_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_DataLineHoldTime_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_ModuleEnable_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveClockHold_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_StartDetect_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_AcksequenceIsInProgress_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_HighFrequency_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_TransmitterByteSend_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveAddressHoldEnable_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_TransmitterBusy_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_ReceivedByteGet_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_ClockStretching_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveBufferOverwrite_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_DataLineHoldTime_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_StartDetect_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveAddressHoldEnable_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SMBus_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveAddressDetect_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveClockStretching_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveReadRequest_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_ReceivedByteAvailable_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_ArbitrationLoss_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_AcksequenceIsInProgress_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveAddress7Bit_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SMBus_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_ClockStretching_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_GeneralCallAddressDetect_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveMask_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_SlaveAddress10Bit_Unsupported.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_ModuleEnable_Default.h</itemPath>
+                    <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_ReceiverOverflow_Unsupported.h</itemPath>
+                  </logicalFolder>
+                  <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/plib_i2c_helper_macros.h</itemPath>
+                  <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/i2c/plib_i2c.h</itemPath>
+                </logicalFolder>
                 <logicalFolder name="tmr" displayName="tmr" projectFiles="true">
                   <logicalFolder name="src" displayName="src" projectFiles="true">
                     <itemPath>../../../../../vendors/microchip/harmony/v2.05/framework/peripheral/tmr/src/plib_tmr_pic32.c</itemPath>
@@ -1115,11 +1221,11 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>pk4hybrid</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.10</languageToolchainVersion>
+        <languageToolchainVersion>2.30</languageToolchainVersion>
         <platform>4</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC32MZ-EF_DFP" vendor="Microchip" version="1.0.17"/>
+        <pack name="PIC32MZ-EF_DFP" vendor="Microchip" version="1.0.20"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -1214,6 +1320,9 @@
         <property key="preprocessor-macros" value=""/>
         <property key="warning-level" value=""/>
       </C32-AS>
+      <C32-CO>
+        <property key="coverage-enable" value=""/>
+      </C32-CO>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
@@ -1600,6 +1709,7 @@
         <property key="SPI/I2S 4" value="true"/>
         <property key="SPI/I2S 5" value="true"/>
         <property key="SPI/I2S 6" value="true"/>
+        <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
         <property key="TIMER1" value="true"/>
         <property key="TIMER2" value="true"/>
         <property key="TIMER3" value="true"/>
@@ -1619,6 +1729,7 @@
         <property key="UART4" value="true"/>
         <property key="UART5" value="true"/>
         <property key="UART6" value="true"/>
+        <property key="communication.activationmode" value="nohv"/>
         <property key="communication.interface"
                   value="${communication.interface.default}"/>
         <property key="communication.speed" value="${communication.speed.default}"/>
@@ -1637,6 +1748,7 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="1d000000-1d1fffff"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoImageName" value="pic32mz_ef_curiosity_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.ledbrightness" value="5"/>
@@ -1655,6 +1767,7 @@
         <property key="programoptions.programcalmem" value="false"/>
         <property key="programoptions.programuserotp" value="false"/>
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
+        <property key="ptgSendImage" value="true"/>
         <property key="voltagevalue" value="3.25"/>
       </pk4hybrid>
     </conf>
@@ -1666,11 +1779,11 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PKOBSKDEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.20</languageToolchainVersion>
+        <languageToolchainVersion>2.30</languageToolchainVersion>
         <platform>4</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC32MZ-EF_DFP" vendor="Microchip" version="1.0.17"/>
+        <pack name="PIC32MZ-EF_DFP" vendor="Microchip" version="1.0.20"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -1721,6 +1834,8 @@
         </C32-AR>
         <C32-AS>
         </C32-AS>
+        <C32-CO>
+        </C32-CO>
         <C32-LD>
         </C32-LD>
         <C32CPP>
@@ -1781,6 +1896,9 @@
         <property key="preprocessor-macros" value=""/>
         <property key="warning-level" value=""/>
       </C32-AS>
+      <C32-CO>
+        <property key="coverage-enable" value=""/>
+      </C32-CO>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
@@ -1979,6 +2097,7 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="memories.configurationmemory" value="true"/>
         <property key="memories.dataflash" value="true"/>
         <property key="memories.eeprom" value="true"/>

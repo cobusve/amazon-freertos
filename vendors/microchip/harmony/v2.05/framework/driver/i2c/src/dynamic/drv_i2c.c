@@ -964,6 +964,8 @@ SYS_STATUS DRV_I2C_Status ( SYS_MODULE_OBJ object )
         return SYS_MODULE_OBJ_INVALID;
     }
     DRV_I2C_OBJ *dObj = (DRV_I2C_OBJ*) object;
+    
+    
 
     /* Return the status associated with the driver handle */
     return ( dObj->status );

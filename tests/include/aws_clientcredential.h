@@ -55,13 +55,13 @@
  *
  * @todo If you are using Wi-Fi, set this to your network name.
  */
-#define clientcredentialWIFI_SSID                    "C14674"
+#define clientcredentialWIFI_SSID                    "AFR-Libraries-24"
 
 /*
  * @brief Password needed to join Wi-Fi network.
  * @todo If you are using WPA, set this to your network password.
  */
-#define clientcredentialWIFI_PASSWORD                "cobus111"
+#define clientcredentialWIFI_PASSWORD                "FreeRTOS"
 
 /*
  * @brief Wi-Fi network security type.

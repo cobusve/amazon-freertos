@@ -585,11 +585,11 @@ extern "C" {
 #define TCPIP_STACK_DRAM_SIZE                       39250
 #define TCPIP_STACK_DRAM_RUN_LIMIT                  2048
 
-#define TCPIP_STACK_MALLOC_FUNC                     malloc
+#define TCPIP_STACK_MALLOC_FUNC                     malloc_hook
 
 #define TCPIP_STACK_CALLOC_FUNC                     calloc
 
-#define TCPIP_STACK_FREE_FUNC                       free
+#define TCPIP_STACK_FREE_FUNC                       free_hook
 
 
 
