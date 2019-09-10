@@ -38,6 +38,7 @@
 #include "driver/i2c/drv_i2c.h"
 #include "system_definitions.h"
 #include "driver/i2c/src/drv_i2c_local.h"
+#include "timers.h"
 
 
 DRV_HANDLE drvI2CMasterHandle;         //Returned from DRV_I2C_Open for I2C Master
@@ -53,6 +54,34 @@ DRV_I2C_Object cryptoObj =
     .i2cDriverInstanceIndex = 0,
     .i2cDriverInit = &drvI2C0InitData
 };
+
+static uint8_t i2cOpCount = 0 ;
+
+static void prvTimerCallback( TimerHandle_t xHandle )
+{
+  if(i2cOpCount == 1)
+  {
+      
+    
+    I2C1CONCLR =  I2CxCON_ON_MASK;
+    I2C1STATCLR = (_I2C1STAT_P_MASK | I2CxSTAT_S_MASK );
+    _nop();
+    _nop();
+    _nop();
+    _nop();
+    I2C1CONSET =  I2CxCON_ON_MASK;
+    ((DRV_I2C_BUFFER_OBJECT*)(drvI2CMasterHandle))->status = DRV_I2C_BUFFER_EVENT_ERROR;
+
+  }
+
+}
+
+static void prvCreatei2cTimeoutTimer( void )
+{
+  TimerHandle_t xTimer;
+  xTimer = xTimerCreate("i2cWatchTimer", pdMS_TO_TICKS(3000), pdFALSE, (void * )0, prvTimerCallback);
+  xTimerStart(xTimer, 3000);
+}
 
 
 /**
@@ -175,6 +204,9 @@ ATCA_STATUS hal_i2c_send(ATCAIface iface, uint8_t *txdata, int txlength)
     txdata[0] = 0x03;   // insert the Word Address Value, Command token
     txlength++;         // account for word address value byte.
     write_bufHandle = DRV_I2C_Transmit(drvI2CMasterHandle, cfg->atcai2c.slave_address, txdata, txlength, NULL);
+    i2cOpCount  = 1;
+    uint32_t xCounterItem =0;
+//    prvCreatei2cTimeoutTimer();
     if ( ((DRV_I2C_BUFFER_HANDLE)(-1)) == write_bufHandle)
     {
         while (1)
@@ -194,11 +226,18 @@ ATCA_STATUS hal_i2c_send(ATCAIface iface, uint8_t *txdata, int txlength)
 
         if ((Transaction == DRV_I2C_BUFFER_EVENT_ERROR) || (I2C1STATbits.BCL == 1))
         {
+            i2cOpCount  = 0;
             return ATCA_COMM_FAIL;
         }
+        if(xCounterItem > 10000000)
+        {
+            return ATCA_COMM_FAIL;
+        }
+        xCounterItem++;
     }
     while (Transaction != DRV_I2C_BUFFER_EVENT_COMPLETE);
 
+    i2cOpCount  = 0;
     return ATCA_SUCCESS;
 
 
@@ -219,12 +258,22 @@ ATCA_STATUS hal_i2c_receive(ATCAIface iface, uint8_t *rxdata, uint16_t *rxlength
 
     //int bus = cfg->atcai2c.bus;
     //int retries = cfg->rx_retries;
+    i2cOpCount  = 1;
+    prvCreatei2cTimeoutTimer();
+    uint32_t xCounterItem =0;
+
 
     read_bufHandle = DRV_I2C_Receive(drvI2CMasterHandle, cfg->atcai2c.slave_address, rxdata, *rxlength, NULL);
     do
     {
+        xCounterItem++;
         Transaction = DRV_I2C_TransferStatusGet(drvI2CMasterHandle, read_bufHandle);
         if ((Transaction == DRV_I2C_BUFFER_EVENT_ERROR) || (I2C1STATbits.BCL == 1))
+        {
+            i2cOpCount  = 0;
+            return ATCA_COMM_FAIL;
+        }
+        if(xCounterItem > 10000000)
         {
             return ATCA_COMM_FAIL;
         }
@@ -234,9 +283,11 @@ ATCA_STATUS hal_i2c_receive(ATCAIface iface, uint8_t *rxdata, uint16_t *rxlength
 
     if (atCheckCrc(rxdata) != ATCA_SUCCESS)
     {
+        i2cOpCount  = 0;
         return ATCA_COMM_FAIL;
     }
 
+    i2cOpCount  = 0;
     return ATCA_SUCCESS;
 
 }
@@ -317,9 +368,17 @@ ATCA_STATUS hal_i2c_wake(ATCAIface iface)
         }
         atca_delay_us(cfg->wake_delay); // wait tWHI + tWLO which is configured based on device type and configuration structure
         read_bufHandle = DRV_I2C_Receive(drvI2CMasterHandle, cfg->atcai2c.slave_address, &data, 4, NULL);
+        uint32_t xxx = 0;
+
         do
         {
             Rx_Transaction = DRV_I2C_TransferStatusGet(drvI2CMasterHandle, read_bufHandle);
+            xxx++;
+            if( xxx > 1000000 )
+            {
+                Rx_Transaction = DRV_I2C_BUFFER_EVENT_ERROR;
+                break;
+            }                
         }
         while (Rx_Transaction != DRV_I2C_BUFFER_EVENT_COMPLETE && Rx_Transaction != DRV_I2C_BUFFER_EVENT_ERROR );
     }

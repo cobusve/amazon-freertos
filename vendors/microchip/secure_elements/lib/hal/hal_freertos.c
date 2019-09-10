@@ -127,6 +127,7 @@ ATCA_STATUS hal_unlock_mutex(void * pMutex)
     }
     else
     {
+        taskYIELD();
         return ATCA_SUCCESS;
     }
 }

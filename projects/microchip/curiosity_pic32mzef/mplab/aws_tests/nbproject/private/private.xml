@@ -5,31 +5,21 @@
         <group>
             <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_ModuleEnable_Default.h</file>
             <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/freertos_kernel/tasks.c</file>
-            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_MasterStartRepeat_Default.h</file>
-            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/libraries/c_sdk/aws/defender/src/private/aws_iot_defender_internal.h</file>
+            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/secure_elements/lib/hal/hal_freertos.c</file>
             <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_MasterStop_Default.h</file>
             <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_Registers.h</file>
-            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/libraries/3rdparty/tinycbor/cborparser_dup_string.c</file>
+            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/driver/i2c/src/drv_i2c_variant_mapping.h</file>
+            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/boards/curiosity_pic32mzef/aws_tests/application_code/microchip_code/system_interrupt.c</file>
+            <file>file:/Applications/microchip/xc32/v2.30/pic32mx/lib/crt0.S</file>
             <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/driver/i2c/src/drv_i2c_local_bb.h</file>
-            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/osal/src/osal_freertos.c</file>
             <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/peripheral/i2c/templates/i2c_ModuleEnable_Unsupported.h</file>
             <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/boards/curiosity_pic32mzef/aws_tests/application_code/main.c</file>
-            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/osal/src/osal.c</file>
-            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/driver/i2c/src/drv_i2c_local.h</file>
+            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/secure_elements/lib/hal/hal_pic32mz2048efm_i2c.c</file>
+            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/driver/i2c/src/dynamic/drv_i2c.c</file>
+            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/freertos_kernel/include/task.h</file>
+            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/driver/i2c/drv_i2c.h</file>
             <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/peripheral/i2c/processor/i2c_p32mz1024efm124.h</file>
             <file>file:/Applications/microchip/xc32/v2.30/pic32mx/include/proc/p32mz2048efm100.h</file>
-            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/peripheral/i2c/processor/i2c_p32mz1024efm100.h</file>
-            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/driver/i2c/drv_i2c_device_pic32m.h</file>
-            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/freertos_kernel/portable/MPLAB/PIC32MZ/port_asm.S</file>
-            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/libraries/abstractions/pkcs11/test/iot_test_pkcs11.c</file>
-            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/boards/curiosity_pic32mzef/aws_tests/application_code/microchip_code/system_interrupt.c</file>
-            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/driver/i2c/src/drv_i2c_variant_mapping.h</file>
-            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/boards/curiosity_pic32mzef/aws_tests/application_code/microchip_code/system_init.c</file>
-            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/peripheral/int/templates/int_SourceFlag_Default.h</file>
-            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/secure_elements/lib/hal/hal_pic32mz2048efm_i2c.c</file>
-            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/system/int/src/sys_int_pic32.c</file>
-            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/driver/i2c/src/dynamic/drv_i2c.c</file>
-            <file>file:/Users/lundinc/Documents/mem_issue/amazon-freertos/vendors/microchip/harmony/v2.05/framework/peripheral/int/processor/int_p32mz2048efm100.h</file>
         </group>
     </open-files>
 </project-private>
