@@ -530,10 +530,6 @@ TEST( Full_PKCS11_StartFinish, AFQP_StartFinish_FirstTest )
 {
     CK_RV xResult;
 
-    configPRINTF( ( "Waiting 5 seconds \r\n" ) );
-    vTaskDelay( 5000 );
-    configPRINTF( ( "Starting Tests \r\n" ) );
-   
     /* Finalize the PKCS #11 module to get it in a known state.
      * Set up the PKCS #11 function list pointer. */
     xResult = prvBeforeRunningTests();
@@ -2322,14 +2318,6 @@ TEST( Full_PKCS11_EC, AFQP_SignVerifyMultiThread )
     CK_OBJECT_HANDLE xCertificate;
     CK_OBJECT_HANDLE xPublicKey;
 
-    configPRINTF( ( "Starting AFQP_SignVerifyMultiThread \r\n" ) );
-    configPRINTF(("\n\nHEAP SIZE ALLOCATED FREERTOS: %zu\r\n\n", xPortGetFreeHeapSize()) );
-//    struct mallinfo mall;
-//    mall = mallinfo();
-//    configPRINTF(("\n\nHEAP SIZE ALLOCATED STD MALLOC: %zu\r\n\n", mall.fordblks) );
-//    configPRINTF(("\n\nHEAP ALLOCATED STD MALLOC: %zu\r\n\n", mall.uordblks) );
-//    configPRINTF(("\n\nHEAP MAX ALLOCATED STD MALLOC: %zu\r\n\n", mall.usmblks) );
-//    
     prvProvisionEcTestCredentials( &xPrivateKey, &xCertificate, &xPublicKey );
 
     for( xTaskNumber = 0; xTaskNumber < pkcs11testMULTI_THREAD_TASK_COUNT; xTaskNumber++ )

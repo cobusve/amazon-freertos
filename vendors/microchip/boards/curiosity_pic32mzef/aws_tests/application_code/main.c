@@ -198,18 +198,12 @@ void watchDogTask(void * p)
         if( pxTaskStatusArray != NULL )
         {
             // Clear the dest first
-//            memset(pxTaskStatusArray, 0, sizeof(pxTaskStatusArray));
-//
-//            /* Generate the (binary) data. */
-//            numTasksRunning = uxTaskGetSystemState( pxTaskStatusArray, 20, NULL );
-//            
-//            numTasksRunning = 0;
-//            uint8_t i = 0;
-//            for(; i < 20; ++i)
-//            {
-//                configPRINTF(("%s\n", pxTaskStatusArray[i].pcTaskName )) ;
-//                       
-//            }
+            memset(pxTaskStatusArray, 0, sizeof(pxTaskStatusArray));
+
+            /* Generate the (binary) data. */
+            numTasksRunning = uxTaskGetSystemState( pxTaskStatusArray, 20, NULL );
+            
+            numTasksRunning = 0;
          }
     }
 }
@@ -397,3 +391,43 @@ void vApplicationIdleHook( void )
 }
 /*-----------------------------------------------------------*/
 
+
+/**
+ * @brief Warn user if pvPortMalloc fails.
+ *
+ * Called if a call to pvPortMalloc() fails because there is insufficient
+ * free memory available in the FreeRTOS heap.  pvPortMalloc() is called
+ * internally by FreeRTOS API functions that create tasks, queues, software
+ * timers, and semaphores.  The size of the FreeRTOS heap is set by the
+ * configTOTAL_HEAP_SIZE configuration constant in FreeRTOSConfig.h.
+ *
+ */
+void vApplicationMallocFailedHook()
+{
+    /* The TCP tests will test behavior when the entire heap is allocated. In
+     * order to avoid interfering with those tests, this function does nothing. */
+}
+/*-----------------------------------------------------------*/
+
+/**
+ * @brief Loop forever if stack overflow is detected.
+ *
+ * If configCHECK_FOR_STACK_OVERFLOW is set to 1,
+ * this hook provides a location for applications to
+ * define a response to a stack overflow.
+ *
+ * Use this hook to help identify that a stack overflow
+ * has occurred.
+ *
+ */
+void vApplicationStackOverflowHook( TaskHandle_t xTask,
+                                    char * pcTaskName )
+{
+    portDISABLE_INTERRUPTS();
+
+    /* Loop forever */
+    for( ; ; )
+    {
+    }
+}
+/*-----------------------------------------------------------*/

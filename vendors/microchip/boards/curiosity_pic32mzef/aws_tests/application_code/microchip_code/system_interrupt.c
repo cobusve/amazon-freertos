@@ -152,7 +152,7 @@ void IntHandlerDrvI2CBusInstance0(void)
     I2C1CONCLR =  I2CxCON_ON_MASK;
 
     //while(1)
-    {
+    //{
         I2C1STATCLR = (_I2C1STAT_P_MASK | I2CxSTAT_S_MASK );
         _nop();
         _nop();
@@ -162,7 +162,7 @@ void IntHandlerDrvI2CBusInstance0(void)
         {
             //break;
         }
-    }
+    //}
     I2C1CONSET =  I2CxCON_ON_MASK;
     I2C1STATCLR = I2CxSTAT_BCL_MASK;
 
