@@ -94,9 +94,9 @@ SOFTWARE
 #pragma config FPLLIDIV =   DIV_1
 #pragma config FPLLRNG =    RANGE_8_16_MHZ
 #pragma config FPLLICLK =   PLL_FRC
-#pragma config FPLLMULT =   MUL_50
+#pragma config FPLLMULT =   MUL_100
 #pragma config FPLLODIV =   DIV_2
-#pragma config UPLLFSEL =   FREQ_24MHZ
+#pragma config UPLLFSEL =   FREQ_12MHZ
 /*** DEVCFG3 ***/
 
 #pragma config USERID =     0xffff
