@@ -49,9 +49,9 @@ SOFTWARE
 /* External Interrupt Instance 0 Interrupt */
    .extern  IntHandlerExternalInterruptInstance0
 
-   .section	.vector_13,code, keep
-   .equ     __vector_dispatch_13, IntVectorExternalInterruptInstance0
-   .global  __vector_dispatch_13
+   .section	.vector_18,code, keep
+   .equ     __vector_dispatch_18, IntVectorExternalInterruptInstance0
+   .global  __vector_dispatch_18
    .set     nomicromips
    .set     noreorder
    .set     nomips16

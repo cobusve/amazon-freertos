@@ -95,7 +95,7 @@ void IntHandlerSysDmaInstance2(void)
  
 void IntHandlerExternalInterruptInstance0(void)
 {
-    PLIB_INT_SourceFlagClear(INT_ID_0, INT_SOURCE_EXTERNAL_2);
+    PLIB_INT_SourceFlagClear(INT_ID_0, INT_SOURCE_EXTERNAL_3);
     #ifndef PIC32_USE_ETHERNET
         WDRV_WILC1000_ISR();
     #endif /* #ifndef PIC32_USE_ETHERNET */
