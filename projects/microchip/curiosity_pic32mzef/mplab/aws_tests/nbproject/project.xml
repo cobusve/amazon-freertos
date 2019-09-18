@@ -26,10 +26,6 @@
             </sourceRootList>
             <confList>
                 <confElem>
-                    <name>pic32mz_ef_curiosity</name>
-                    <type>2</type>
-                </confElem>
-                <confElem>
                     <name>pic32mz_ef_curiosity_ecc</name>
                     <type>2</type>
                 </confElem>

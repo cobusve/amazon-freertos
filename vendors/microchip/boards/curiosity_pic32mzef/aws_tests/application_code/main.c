@@ -131,11 +131,11 @@ int main( void )
      * running.  */
     prvMiscInitialization();
 
-    FreeRTOS_IPInit( ucIPAddress,
-                     ucNetMask,
-                     ucGatewayAddress,
-                     ucDNSServerAddress,
-                     ucMACAddress );
+//    FreeRTOS_IPInit( ucIPAddress,
+//                     ucNetMask,
+//                     ucGatewayAddress,
+//                     ucDNSServerAddress,
+//                     ucMACAddress );
 
     /* Start the scheduler.  Initialization that requires the OS to be running,
      * including the WiFi initialization, is performed in the RTOS daemon task
@@ -209,9 +209,9 @@ void watchDogTask(void * p)
 }
 
 
-void vApplicationIPNetworkEventHook( eIPCallbackEvent_t eNetworkEvent )
+void vApplicationDaemonTaskStartupHook( void )
 {
-    uint32_t ulIPAddress, ulNetMask, ulGatewayAddress, ulDNSServerAddress;
+       uint32_t ulIPAddress, ulNetMask, ulGatewayAddress, ulDNSServerAddress;
     char cBuffer[ 16 ];
     static BaseType_t xTasksAlreadyCreated = pdFALSE;
 
@@ -223,44 +223,22 @@ void vApplicationIPNetworkEventHook( eIPCallbackEvent_t eNetworkEvent )
                  10, NULL );
             
     /* If the network has just come up...*/
-    if( eNetworkEvent == eNetworkUp )
-    {
-        if( SYSTEM_Init() == pdPASS && xTasksAlreadyCreated == pdFALSE )
-        {
-            /* A simple example to demonstrate key and certificate provisioning in
-             * microcontroller flash using PKCS#11 interface. This should be replaced
-             * by production ready key provisioning mechanism. */
-            vDevModeKeyProvisioning();
+    CRYPTO_Init();
+      
             
-            /* If the network has just come up...*/
-            xTaskCreate( TEST_RUNNER_RunTests_task,
-                         "TestRunner",
-                         mainTEST_RUNNER_TASK_STACK_SIZE,
-                         NULL,
-                         tskIDLE_PRIORITY, NULL );
-                         
-            xTasksAlreadyCreated = pdTRUE;
-        }
+    /* If the network has just come up...*/
+    xTaskCreate( TEST_RUNNER_RunTests_task,
+                 "TestRunner",
+                 mainTEST_RUNNER_TASK_STACK_SIZE,
+                 NULL,
+                 tskIDLE_PRIORITY, NULL );
 
-        /* Print out the network configuration, which may have come from a DHCP
-        * server. */
-        FreeRTOS_GetAddressConfiguration(
-            &ulIPAddress,
-            &ulNetMask,
-            &ulGatewayAddress,
-            &ulDNSServerAddress );
-        FreeRTOS_inet_ntoa( ulIPAddress, cBuffer );
-        FreeRTOS_printf( ( "\r\n\r\nIP Address: %s\r\n", cBuffer ) );
 
-        FreeRTOS_inet_ntoa( ulNetMask, cBuffer );
-        FreeRTOS_printf( ( "Subnet Mask: %s\r\n", cBuffer ) );
+}
 
-        FreeRTOS_inet_ntoa( ulGatewayAddress, cBuffer );
-        FreeRTOS_printf( ( "Gateway Address: %s\r\n", cBuffer ) );
-
-        FreeRTOS_inet_ntoa( ulDNSServerAddress, cBuffer );
-        FreeRTOS_printf( ( "DNS Server Address: %s\r\n\r\n\r\n", cBuffer ) );
-    }
+void vApplicationIPNetworkEventHook( eIPCallbackEvent_t eNetworkEvent )
+{
+ 
 }
 /*-----------------------------------------------------------*/
 
@@ -388,46 +366,5 @@ void vApplicationIdleHook( void )
      * FreeRTOSConfig.h.  It must *NOT* attempt to block.  In this case the
      * idle task just sleeps to lower the CPU usage. */
     Sleep( ulMSToSleep );
-}
-/*-----------------------------------------------------------*/
-
-
-/**
- * @brief Warn user if pvPortMalloc fails.
- *
- * Called if a call to pvPortMalloc() fails because there is insufficient
- * free memory available in the FreeRTOS heap.  pvPortMalloc() is called
- * internally by FreeRTOS API functions that create tasks, queues, software
- * timers, and semaphores.  The size of the FreeRTOS heap is set by the
- * configTOTAL_HEAP_SIZE configuration constant in FreeRTOSConfig.h.
- *
- */
-void vApplicationMallocFailedHook()
-{
-    /* The TCP tests will test behavior when the entire heap is allocated. In
-     * order to avoid interfering with those tests, this function does nothing. */
-}
-/*-----------------------------------------------------------*/
-
-/**
- * @brief Loop forever if stack overflow is detected.
- *
- * If configCHECK_FOR_STACK_OVERFLOW is set to 1,
- * this hook provides a location for applications to
- * define a response to a stack overflow.
- *
- * Use this hook to help identify that a stack overflow
- * has occurred.
- *
- */
-void vApplicationStackOverflowHook( TaskHandle_t xTask,
-                                    char * pcTaskName )
-{
-    portDISABLE_INTERRUPTS();
-
-    /* Loop forever */
-    for( ; ; )
-    {
-    }
 }
 /*-----------------------------------------------------------*/

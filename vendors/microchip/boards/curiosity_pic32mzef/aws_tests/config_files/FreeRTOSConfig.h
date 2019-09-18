@@ -55,11 +55,11 @@
 #define configPERIPHERAL_CLOCK_HZ                  ( 100000000UL )
 #define configTICK_RATE_HZ                         ( ( TickType_t ) 1000 )
 #define configMAX_PRIORITIES                       ( 10UL )
-#define configMINIMAL_STACK_SIZE                   ( 512 )
-#define configISR_STACK_SIZE                       ( 512 )
+#define configMINIMAL_STACK_SIZE                   ( 1024 )
+#define configISR_STACK_SIZE                       ( 1024 )
 #define configSUPPORT_DYNAMIC_ALLOCATION           1
 #define configSUPPORT_STATIC_ALLOCATION            1
-#define configTOTAL_HEAP_SIZE                      ( ( size_t ) 210000 )
+#define configTOTAL_HEAP_SIZE                      ( ( size_t ) 310000 )
 #define configMAX_TASK_NAME_LEN                    ( 16 )
 #define configUSE_16_BIT_TICKS                     0
 #define configIDLE_SHOULD_YIELD                    1
@@ -93,8 +93,8 @@
 #define configUSE_TIMERS                           1
 #define configTIMER_TASK_PRIORITY                  1
 #define configTIMER_QUEUE_LENGTH                   2
-#define configTIMER_TASK_STACK_DEPTH               512
-#define configUSE_DAEMON_TASK_STARTUP_HOOK         0
+#define configTIMER_TASK_STACK_DEPTH               1024
+#define configUSE_DAEMON_TASK_STARTUP_HOOK         1
 
 /* Misc */
 #define configUSE_APPLICATION_TASK_TAG             1
