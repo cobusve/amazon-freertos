@@ -113,7 +113,7 @@ const BaseType_t xLogToStdout = pdTRUE, xLogToFile = pdFALSE, xLogToUDP = pdFALS
 /**
  * @brief Application task startup hook.
  */
-void vApplicationDaemonTaskStartupHook( void );
+void vApplicationDaemonTaskStartupHook( void ) {};
 
 /**
  * @brief Initializes the board.
@@ -131,11 +131,11 @@ int main( void )
      * running.  */
     prvMiscInitialization();
 
-//    FreeRTOS_IPInit( ucIPAddress,
-//                     ucNetMask,
-//                     ucGatewayAddress,
-//                     ucDNSServerAddress,
-//                     ucMACAddress );
+    FreeRTOS_IPInit( ucIPAddress,
+                     ucNetMask,
+                     ucGatewayAddress,
+                     ucDNSServerAddress,
+                     ucMACAddress );
 
     /* Start the scheduler.  Initialization that requires the OS to be running,
      * including the WiFi initialization, is performed in the RTOS daemon task
@@ -209,9 +209,9 @@ void watchDogTask(void * p)
 }
 
 
-void vApplicationDaemonTaskStartupHook( void )
+void vApplicationIPNetworkEventHook( eIPCallbackEvent_t eNetworkEvent )
 {
-       uint32_t ulIPAddress, ulNetMask, ulGatewayAddress, ulDNSServerAddress;
+    uint32_t ulIPAddress, ulNetMask, ulGatewayAddress, ulDNSServerAddress;
     char cBuffer[ 16 ];
     static BaseType_t xTasksAlreadyCreated = pdFALSE;
 
@@ -223,22 +223,44 @@ void vApplicationDaemonTaskStartupHook( void )
                  10, NULL );
             
     /* If the network has just come up...*/
-    CRYPTO_Init();
-      
+    if( eNetworkEvent == eNetworkUp )
+    {
+        if( SYSTEM_Init() == pdPASS && xTasksAlreadyCreated == pdFALSE )
+        {
+            /* A simple example to demonstrate key and certificate provisioning in
+             * microcontroller flash using PKCS#11 interface. This should be replaced
+             * by production ready key provisioning mechanism. */
+            vDevModeKeyProvisioning();
             
-    /* If the network has just come up...*/
-    xTaskCreate( TEST_RUNNER_RunTests_task,
-                 "TestRunner",
-                 mainTEST_RUNNER_TASK_STACK_SIZE,
-                 NULL,
-                 tskIDLE_PRIORITY, NULL );
+            /* If the network has just come up...*/
+            xTaskCreate( TEST_RUNNER_RunTests_task,
+                         "TestRunner",
+                         mainTEST_RUNNER_TASK_STACK_SIZE,
+                         NULL,
+                         tskIDLE_PRIORITY, NULL );
+                         
+            xTasksAlreadyCreated = pdTRUE;
+        }
 
+        /* Print out the network configuration, which may have come from a DHCP
+        * server. */
+        FreeRTOS_GetAddressConfiguration(
+            &ulIPAddress,
+            &ulNetMask,
+            &ulGatewayAddress,
+            &ulDNSServerAddress );
+        FreeRTOS_inet_ntoa( ulIPAddress, cBuffer );
+        FreeRTOS_printf( ( "\r\n\r\nIP Address: %s\r\n", cBuffer ) );
 
-}
+        FreeRTOS_inet_ntoa( ulNetMask, cBuffer );
+        FreeRTOS_printf( ( "Subnet Mask: %s\r\n", cBuffer ) );
 
-void vApplicationIPNetworkEventHook( eIPCallbackEvent_t eNetworkEvent )
-{
- 
+        FreeRTOS_inet_ntoa( ulGatewayAddress, cBuffer );
+        FreeRTOS_printf( ( "Gateway Address: %s\r\n", cBuffer ) );
+
+        FreeRTOS_inet_ntoa( ulDNSServerAddress, cBuffer );
+        FreeRTOS_printf( ( "DNS Server Address: %s\r\n\r\n\r\n", cBuffer ) );
+    }
 }
 /*-----------------------------------------------------------*/
 
@@ -368,3 +390,4 @@ void vApplicationIdleHook( void )
     Sleep( ulMSToSleep );
 }
 /*-----------------------------------------------------------*/
+

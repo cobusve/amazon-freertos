@@ -152,6 +152,14 @@ extern "C" {
 #define SYS_PORT_G_CNPD         0x0000
 #define SYS_PORT_G_CNEN         0x0000
 
+#define SYS_PORT_J_ANSEL        0x0000
+#define SYS_PORT_J_TRIS         0xFFFF
+#define SYS_PORT_J_LAT          0x0000
+#define SYS_PORT_J_ODC          0x0000
+#define SYS_PORT_J_CNPU         0x0000
+#define SYS_PORT_J_CNPD         0x0000
+#define SYS_PORT_J_CNEN         0x0000
+
 
 /*** Command Processor System Service Configuration ***/
 #define SYS_CMD_ENABLE
@@ -413,17 +421,17 @@ extern "C" {
 #define WDRV_EXT_RTOS_TASK_PRIORITY (configMAX_PRIORITIES - 1)
 
 // I/O mappings for general control pins, including CHIP_EN, IRQN, RESET_N and SPI_SSN.
-#define WDRV_CHIP_EN_PORT_CHANNEL   PORT_CHANNEL_F
-#define WDRV_CHIP_EN_BIT_POS        2
+#define WDRV_CHIP_EN_PORT_CHANNEL   PORT_CHANNEL_D
+#define WDRV_CHIP_EN_BIT_POS        15
 
-#define WDRV_IRQN_PORT_CHANNEL      PORT_CHANNEL_F
-#define WDRV_IRQN_BIT_POS           12
+#define WDRV_IRQN_PORT_CHANNEL      PORT_CHANNEL_D
+#define WDRV_IRQN_BIT_POS           10
 
-#define WDRV_RESET_N_PORT_CHANNEL   PORT_CHANNEL_A
-#define WDRV_RESET_N_BIT_POS        5
+#define WDRV_RESET_N_PORT_CHANNEL   PORT_CHANNEL_J
+#define WDRV_RESET_N_BIT_POS        10
 
-#define WDRV_SPI_SSN_PORT_CHANNEL   PORT_CHANNEL_D
-#define WDRV_SPI_SSN_BIT_POS        5
+#define WDRV_SPI_SSN_PORT_CHANNEL   PORT_CHANNEL_C
+#define WDRV_SPI_SSN_BIT_POS        2
 
 #define WDRV_DEFAULT_NETWORK_TYPE WDRV_NETWORK_TYPE_INFRASTRUCTURE
 #define WDRV_DEFAULT_CHANNEL 6
